@@ -1,4 +1,8 @@
 """
+Question
+The Fibonacci numbers, commonly denoted F(n) form a sequence, called the Fibonacci sequence, such that each number is the sum of the two preceding ones, starting from 0 and 1. That is,
+Given n, calculate F(n).
+
 Intuition
 The idea here is to create a dummy mode and add values from the two lists in an ascending order. To do that, compare the values inside the two lists
 and insert which ever is the smallest and increment the tail after the insertion.
@@ -16,21 +20,12 @@ The space complexity is O(1),
 
 Code:
 """
-
 class Solution(object):
-    def mergeTwoLists(self, list1, list2):
-        dummy = ListNode()
-        tail = dummy
-
-        while list1 and list2:
-            if list1.val < list2.val:
-                tail.next = list1
-                list1 = list1.next
-            else:
-                tail.next = list2
-                list2 = list2.next
-            tail = tail.next
-        
-        tail.next = list1 or list2
-        return dummy.next
-
+    def fib(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        if n <= 1:
+            return n
+        return self.fib(n-1) + self.fib(n-2)
